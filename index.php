@@ -1,22 +1,13 @@
 <?php
 session_start();
-?>
-<?php if(!isset($_SESSION['username'])): ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chap App - Login</title>
-    <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body class="d-flex
-             justify-content-center
-             align-items-center
-             vh-100">
+$title = "Chap App - Login";
+require "src/elements/header.php";
+
+if(!isset($_SESSION['username'])):
+
+
+?>
     <div class="w-400 p-5 shadow rounded">
         <form method="post"
               action="app/http/auth.php">

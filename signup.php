@@ -1,25 +1,16 @@
 <?php
 session_start();
+
+$title = "Chap App - Sing Up";
+require "src/elements/header.php";
+
+
 if(!isset($_SESSION['username'])):
 $name = isset($_GET['name']) ? $_GET['name'] : '';
 $username = isset($_GET['username']) ? $_GET['username'] : '';
 
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chap App - Sing Up</title>
-    <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body class="d-flex
-             justify-content-center
-             align-items-center
-             vh-100">
+?>
     <div class="w-400 p-5 shadow rounded">
         <form method="post"
               action="app/http/signup.php"

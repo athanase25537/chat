@@ -1,8 +1,7 @@
 <?php
 session_start();
-require "vendor/autoload.php"
-?>
-<?php
+require "vendor/autoload.php";
+
 if(isset($_SESSION['username'])):
 require "app/db-connection.php";
 
@@ -28,25 +27,9 @@ if(empty($chatWith)){
 $chats = getChats($_SESSION['user_id'], $chatWith['user_id'], $conn);
 opened($chatWith['user_id'], $conn, $chats);
 
+$title = "Chat App";
+require "src/elements/header.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
-
-    <link rel="stylesheet" href="src/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="shortcut icon" href="src/img/un-message.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="d-flex
-            justify-content-center
-            align-items-center
-            vh-100">
 
     <div class="w-400 shadow p-4 rounded">
         <a href="home.php"
@@ -104,8 +87,7 @@ opened($chatWith['user_id'], $conn, $chats);
         <div class="input-group mb-3">
             <textarea name="" cols="3"
                 id="message"
-                class="form-control">
-            </textarea>
+                class="form-control"></textarea>
             <button class="btn btn-primary"
                     id="sendBtn">
                 <i class="fa fa-paper-plane"></i>
